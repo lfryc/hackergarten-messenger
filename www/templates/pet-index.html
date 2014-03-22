@@ -8,12 +8,21 @@
 
     <ion-list>
 
-      <ion-item ng-repeat="pet in pets" type="item-text-wrap" href="#/tab/pet/{{pet.id}}">
-        <h3>{{pet.title}}</h3>
-        <p>{{pet.description}}</p>
+      <ion-item ng-repeat="message in messages" type="item-text-wrap">
+        <h3>{{message.alert}}</h3>
       </ion-item>
       
     </ion-list>
+
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Write your message" ng-model="messageToSent">
+      </label>
+    </div>
+
+    <div class="padding">
+      <button ng-click="send(messageToSent)" class="button button-block button-positive">Submit</button>
+    </div>
 
   </ion-content>
 </ion-view>

@@ -22,5 +22,42 @@ angular.module('starter.services', [])
       // Simple index lookup
       return pets[petId];
     }
+  };
+})
+.factory('Notification', function($ionicPlatform, $rootScope) {
+
+  var messages = [];
+
+  function successHandler(evt) {
+    console.log('SUCCESS', evt);
   }
+
+  function errorHandler(evt) {
+    console.log('ERROR', evt);
+  }
+
+  var onNotification = window.onNotification = function onNotification(evt) {
+    console.log('NOTIFICATION', evt);
+
+    $rootScope.$apply(function() {
+      messages.push(evt);
+    });
+  };
+
+  var pushConfig = {
+      senderID: "senderID",
+      pushServerURL: "https://hackergartenups-sblanc.rhcloud.com/",
+      variantID: "variantID",
+      variantSecret: "variantSecret"
+  };
+
+  $ionicPlatform.ready(function() {
+    //badge and sound are iOS specific, and ignored on Android
+    push.register(successHandler, errorHandler, {"badge": "true", "sound": "true",
+        "ecb": "onNotification", pushConfig: pushConfig});
+  });
+
+  return {
+    messages: messages
+  };
 });
