@@ -22,6 +22,7 @@ This is a Simple Notification Application built during the [AeroGear's Hackergar
 ### Server Side
 * [AeroGear UnifiedPush Server](http://aerogear.org/docs/specs/aerogear-server-push/)
 * [NodeJS](http://nodejs.org/)
+* [AeroGear's NodeJS Sender Client](https://github.com/aerogear/aerogear-unifiedpush-nodejs-client)
 * These 2 components has been deployed on [OpenShift](https://www.openshift.com/) using their respective cartdridges
 
 ## Installation
