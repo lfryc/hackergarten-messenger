@@ -2,9 +2,8 @@ angular.module('starter.controllers', [])
 
 
 // A simple controller that fetches a list of data from a service
-.controller('PetIndexCtrl', function($scope, PetService, Notification, $http) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pets = PetService.all();
+.controller('MessengerIndexCtrl', function($scope, Notification, $http) {
+ 
 
   $scope.messages = Notification.messages;
 
@@ -16,7 +15,7 @@ angular.module('starter.controllers', [])
 
     return $http({
       method: 'POST',
-      url: 'http://192.168.20.12:1414/messages',
+      url: 'http://hackernode-sblanc.rhcloud.com/messages',
       data: {
         message: msg
       }
@@ -24,9 +23,3 @@ angular.module('starter.controllers', [])
   };
 })
 
-
-// A simple controller that shows a tapped item's data
-.controller('PetDetailCtrl', function($scope, $stateParams, PetService) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pet = PetService.get($stateParams.petId);
-});
